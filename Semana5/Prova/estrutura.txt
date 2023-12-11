@@ -1,0 +1,94 @@
+Empresa{
+    List<Cliente> listaClientes
+    List<Imovel> listaImoveis
+    List<Fatura> listaFaturas
+    List<Falha> listaFalhas
+
+    void menuEmpresa()
+        void menuCliente()
+            void incluirCliente()
+            void consultarCliente()
+            void listarCliente()
+            void excluirCliente()
+            void alterarCliente()
+
+        void menuImovel()
+            void incluirImovel()
+            void consultarImovel()
+            void listarImovel()
+            void excluirImovel()
+            void alterarImovel()
+
+        void menuFaturas()
+            void incluirFatura()
+                //Explicacao no inicio na segunda pagina
+            void listarTodasFaturas()
+            void listarFaturasAbertas()
+        
+        void menuPagamento()
+            void incluirPagamento()
+            void listarTodosPagamentos()
+            void listarPagamentosFatura()
+            void ListarReembolsos()
+            void consultarReembolsoFatura()
+        
+        void menuFalhas()
+            void incluirFalhaComMatricula()
+            void incluirFalhaSemMatricula()
+            void menuReparos()
+                void listarReparosAbertos()
+                void encerrarReparo()
+}
+
+Cliente{
+    string nome
+    string cpf   
+    Imovel imovel
+}
+
+Imovel{
+    string matricula // funciona como um id
+    string endereco
+    float ultimaLeitura
+    float penultimaLeitura
+    lista<Fatura> listaFaturas
+    lista<Falha> listaFalhas
+}
+
+Fatura{
+    string id //Isso não está no diagrama nem no texto, mas não consigo imaginar como puxar uma fatura em específico sem ser isso ou puxar pelo indice da lista, o que não é muito bom
+    LocalDate Data
+    float UltimaLeitura
+    float PenultimaLeitura
+    float Valor
+    bool estadoPagamento = false
+    list<Pagamento> pagamentos
+}
+
+Pagamento{
+    float Valor
+    LocalDate Data
+    Reembolso Reembolso
+}
+
+Reembolso{
+    float Valor
+    LocalDate Data
+}
+
+Falha{
+    string Descricao
+    LocalDate previsao
+    LocalDate DataInicio
+    LocalDate DataFim
+    string TipoFalha // acho que e melhor do que criar duas classes 
+    list<Reparo> reparos
+}
+
+Reparo{
+    string Descricao
+    LocalDate previsao
+    LocalDate DataInicio
+    LocalDate DataFim
+    bool estadoResolvido = 0
+}
