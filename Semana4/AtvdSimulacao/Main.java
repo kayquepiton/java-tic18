@@ -64,6 +64,7 @@ public class Main {
             String email = scanner.nextLine();
             System.out.print("Senha: ");
             String senha = scanner.nextLine();
+            scanner.close();
 
             Usuario novoUsuario = new Usuario(nome, email, senha);
             listaUsuarios.criarUsuario(novoUsuario);
@@ -86,6 +87,7 @@ public class Main {
             if (usuarioRemover != null) {
                 System.out.print("Digite a senha para confirmar a remoção: ");
                 String senhaConfirmacao = scanner.nextLine();
+                scanner.close();
 
                 if (senhaConfirmacao.equals(usuarioRemover.getSenha())) {
                     for (Usuario amigo : usuarioRemover.getAmigos()) {
@@ -119,6 +121,7 @@ public class Main {
             String nomeUsuario = scanner.nextLine();
             System.out.print("Senha: ");
             String senha = scanner.nextLine();
+            scanner.close();
 
             Usuario usuario = buscarUsuarioPorNome(nomeUsuario);
 
@@ -168,6 +171,7 @@ public class Main {
                     case 4:
                         System.out.println("Digite o nome do usuário para desfazer amizade:");
                         String nomeAmigoDesfazer = scanner.nextLine();
+                        scanner.close();
                         desfazerAmizade(nomeAmigoDesfazer);
                         break;
                     case 0:
